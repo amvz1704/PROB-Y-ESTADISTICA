@@ -1,3 +1,5 @@
+library(readr)
+
 valA = runif(5000)
 valB = runif(5000)
 valC = runif(5000)
@@ -59,4 +61,12 @@ quantile(mayorY, 1)
 plot(density(mayorY), col = 1, lwd = 2,
      main = "", xlab = "x", ylab = "Y")
 
+esperas = read_csv("esperas.csv")
+head(esperas)
+quantile(esperas$muestra1, seq(0.02,0.98,0.02))
+quantile(esperas$muestra2, seq(0.02,0.98,0.02))
+quantile(Y, seq(0.02,0.98,0.02))
+quantile(y1, seq(0.02,0.98,0.02))
+quantile(y2, seq(0.02,0.98,0.02))
+quantile(y3, seq(0.02,0.98,0.02))
 
