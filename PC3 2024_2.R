@@ -70,8 +70,9 @@ quantile(y3, 0.75)
 
 #Elegir el mayor tiempo
 mayorY = pmax(y1, y2, y3)
+fY = density(mayorY)
 #Promedio
-mean(mayorY)
+EY = sum(fY$x * fY$y) * diff(fY$x[1:2])
 #Desviacion estandar
 sd(mayorY)
 
