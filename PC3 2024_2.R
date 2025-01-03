@@ -29,22 +29,22 @@ fy3 = density(y3)
 
 #Grafico funcion densidad Y1
 plot(fy1, col = 1, lwd = 2,
-     main = "", xlab = "x", ylab = "Y1")
+     main = "Comparacion de Densidades de Tiempo de Espera", xlab = "Tiempo de Espera(min)", ylab = "fYi(y)")
 
 #Valor esperado Y1
 EY1 = sum(fy1$x * fy1$y) * diff(fy1$x[1:2])
 
 #Grafico funcion densidad Y2
-plot(fy2, col = 1, lwd = 2,
-     main = "", xlab = "x", ylab = "Y2")
-
+#plot(fy2, col = 1, lwd = 2,
+#     main = "", xlab = "x", ylab = "Y2")
+lines(fy2, col = "red", lwd = 1)
 #Valor esperado Y1
 EY2 = sum(fy2$x * fy2$y) * diff(fy2$x[1:2])
 
 #Grafico funcion densidad Y3
-plot(fy3, col = 1, lwd = 2,
-     main = "", xlab = "x", ylab = "Y3")
-
+#plot(fy3, col = 1, lwd = 2,
+#    main = "", xlab = "x", ylab = "Y3")
+lines(fy3, col = "green")
 #Valor esperado Y1
 EY3 = sum(fy3$x * fy3$y) * diff(fy3$x[1:2])
 
@@ -83,8 +83,8 @@ quantile(mayorY, 0.75)
 quantile(mayorY, 1)
 
 #Grafico densidad empirico Y
-plot(density(mayorY), col = 1, lwd = 2,
-     main = "", xlab = "x", ylab = "Y")
+plot(density(mayorY), type = "l", col = 1, lwd = 3,
+     main = "Funcion densidad para el Y mayor", xlab = "Tiempo esperado(min)", ylab = "fY(y)")
 
 # PREGUNTA 4
 esperas = read_csv("esperas.csv")
@@ -94,6 +94,8 @@ quantile(esperas$muestra1, seq(0.02,0.98,0.02))
 quantile(esperas$muestra2, seq(0.02,0.98,0.02))
 quantile(Y, seq(0.02,0.98,0.02))
 quantile(y1, seq(0.02,0.98,0.02))
+
 quantile(y2, seq(0.02,0.98,0.02))
 quantile(y3, seq(0.02,0.98,0.02))
 
+quantile(y2, 0)
